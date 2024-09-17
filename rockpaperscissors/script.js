@@ -25,22 +25,30 @@ function rockClicked() {
   console.log("rockClicked");
   userGuess = "rock";
 
-  randomNumber();
+  prepGame();
 }
 function paperClicked() {
   console.log("paperClicked");
 
   userGuess = "paper";
-  randomNumber();
+  prepGame();
 }
 function scissorsClicked() {
   console.log("scissorsClicked");
 
   userGuess = "scissors";
-  randomNumber();
+  prepGame();
 }
 
-function randomNumber() {
+function prepGame() {
+  draw.classList = "";
+  win.classList = "";
+  lose.classList = "";
+
+  draw.classList.add("hidden");
+  win.classList.add("hidden");
+  lose.classList.add("hidden");
+
   randomNum = Math.floor(Math.random() * 3) + 1;
   console.log("Random number is: ", randomNum);
 
@@ -73,12 +81,12 @@ function whoWins() {
     draw.classList.remove("hidden");
     console.log("Its a draw");
   }
-  if ((userGuess === "paper" && computerGuess === "rock") || (userGuess === "rock" && computerGuess === "scissors") || (userGuess === "rock" && computerGuess === "paper")) {
+  if ((userGuess === "paper" && computerGuess === "rock") || (userGuess === "rock" && computerGuess === "scissors") || (userGuess === "paper" && computerGuess === "scissors") || (userGuess === "scissors" && computerGuess === "paper")) {
     result = "win";
     win.classList.remove("hidden");
     console.log("You win");
   }
-  if ((userGuess === "scissors" && computerGuess === "rock") || (userGuess === "paper" && computerGuess === "scissors") || (userGuess === "scissors" && computerGuess === "paper")) {
+  if ((userGuess === "scissors" && computerGuess === "rock") || (userGuess === "rock" && computerGuess === "paper")) {
     result = "lose";
     lose.classList.remove("hidden");
     console.log("You lose");
