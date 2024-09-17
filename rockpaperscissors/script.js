@@ -14,6 +14,7 @@ const draw = document.querySelector("#draw");
 
 let userGuess;
 let computerGuess;
+let randomNum;
 let result;
 
 rock.addEventListener("click", rockClicked);
@@ -24,23 +25,38 @@ function rockClicked() {
   console.log("rockClicked");
   userGuess = "rock";
 
-  computerGuesses();
+  randomNumber();
 }
 function paperClicked() {
   console.log("paperClicked");
 
   userGuess = "paper";
-  computerGuesses();
+  randomNumber();
 }
 function scissorsClicked() {
   console.log("scissorsClicked");
 
   userGuess = "scissors";
+  randomNumber();
+}
+
+function randomNumber() {
+  randomNum = Math.floor(Math.random() * 3) + 1;
+  console.log("Random number is: ", randomNum);
+
   computerGuesses();
 }
 
 function computerGuesses() {
-  computerGuess = "paper";
+  if (randomNum === 1) {
+    computerGuess = "rock";
+  }
+  if (randomNum === 2) {
+    computerGuess = "paper";
+  }
+  if (randomNum === 3) {
+    computerGuess = "scissors";
+  }
 
   console.log("ComputerGuess is: ", computerGuess);
   console.log("Userguess is: ", userGuess);
