@@ -41,10 +41,14 @@ function scissorsClicked() {
 }
 
 function prepGame() {
+  player1.classList = "";
+  player2.classList = "";
   draw.classList = "";
   win.classList = "";
   lose.classList = "";
 
+  player1.classList.add("player");
+  player2.classList.add("player");
   draw.classList.add("hidden");
   win.classList.add("hidden");
   lose.classList.add("hidden");
@@ -72,7 +76,29 @@ function computerGuesses() {
   player1.classList.add("shake");
   player2.classList.add("shake");
 
-  player1.addEventListener("animationend", whoWins);
+  player1.addEventListener("animationend", player1Hand);
+  player2.addEventListener("animationend", player2Hand);
+}
+
+function player1Hand() {
+  if (userGuess === "paper") {
+    player1.classList.add("paper");
+  }
+  if (userGuess === "scissors") {
+    player1.classList.add("scissors");
+  } else {
+  }
+  whoWins();
+}
+function player2Hand() {
+  if (computerGuess === "paper") {
+    player2.classList.add("paper");
+  }
+  if (computerGuess === "scissors") {
+    player2.classList.add("scissors");
+  } else {
+  }
+  whoWins();
 }
 
 function whoWins() {
@@ -100,5 +126,4 @@ function resetGame() {
 
   player1.classList.remove("shake");
   player2.classList.remove("shake");
-  player1.removeEventListener("animationend", whoWins);
 }
