@@ -6,9 +6,13 @@ const bc = [
   { name: "Bosch", link: "/hvidevarer/vaskemaskiner/bosch/" },
 ];
 
-createBc(bc);
+$("button").addEventListener("click", () => {
+  return createBc(bc);
+});
 
 function createBc(arr) {
+  $("nav").innerHTML = "";
+
   arr.forEach((each) => {
     $("nav").innerHTML += `${arr.indexOf(each) === arr.length - 1 ? `<p>${each.name}<p>` : `<a href="${each.link}">${each.name}</a> /`} 
           
