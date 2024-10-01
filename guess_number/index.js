@@ -1,11 +1,15 @@
-const button = document.querySelector("button");
+import { $, $$ } from "../utils/dom.js";
+import { getRandomNumber } from "../utils/numbers.js";
+
+const button = $("button");
+// const button = document.querySelector("button");
 const input = document.querySelector("#number").value;
 
 //Lyt efter et gæt
-button.addEventListener("click", randomNumber);
+$("button").addEventListener("click", randomNumber);
 
 // Generer et tilfældigt tal
-let number = Math.round(Math.random() * 3);
+const number = getRandomNumber(3);
 
 function randomNumber() {
   console.log(number);
