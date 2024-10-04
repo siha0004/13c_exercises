@@ -21,7 +21,7 @@ const btn2plus = document.querySelector(".two_plus");
 // Funktion som viser tabellen
 showTheseVehicles(vehicles);
 
-// btnAll.addEventListener("click", showTheseVehicles(vehicles));
+//Eventlisteners til knapperne
 btnElectric.addEventListener("click", () => {
   showTheseVehicles(allElectricArr);
 });
@@ -71,7 +71,7 @@ function isRyeOnePlus(vehicle) {
 
 //Funktion der laver tabbelsen
 function showTheseVehicles(arr) {
-  // Slet hvad der er i den
+  // Slet hvad der er i tabellen
   tbodyPointer.innerHTML = "";
   //Tilføj indhold ud fra array som modtages
   arr.forEach((each) => {
@@ -89,7 +89,7 @@ function showTheseVehicles(arr) {
 
 <td>${pretty(each.ownedBy)}</td>;
 
-//Funktion som gør ting smukkere
+//Funktion som gør ting smukkere (uden undefined og true)
 function pretty(word) {
   if (word === true) {
     return "X";
