@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        [data-filter="fox"] {
+            background-color: brown;
+            color: black;
+
+        }
+
+        [data-filter="bat"] {
+            background-color: black;
+            color: white;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", init)
+        function init() {
+            document.querySelector("button").addEventListener("click", change)
+        }
+        function change() {
+            const h1Pointer = document.querySelector("h1")
+
+            if (h1Pointer.dataset.filter === "bat") {
+                h1Pointer.dataset.filter = "fox"
+            } else {
+
+                h1Pointer.dataset.filter = "bat"
+
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1 data-filter="fox">Hey, brown is fox black is bat</h1>
+    <button>change</button>
+</body>
+
+</html>
