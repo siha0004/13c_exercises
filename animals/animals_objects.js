@@ -20,13 +20,15 @@ function loadJSON() {
 }
 
 function prepareObjects(jsonData) {
+  // For hvert element i det oprindelige array
   jsonData.forEach((jsonObject) => {
-    // TODO: Create new object with cleaned data - and store that in the allAnimals array
-    // TODO: MISSING CODE HERE !!!
-
+    // Splitter fullname-værdien fra det oprindelige array ved mellemrummende
     const texts = jsonObject.fullname.split(" ");
+
+    // Laver et nyt object, hvor jeg bruger de nu splittede strenge, og indsætter på deres respektive pladser, i mit nye object
     const animal = { name: texts[0], desc: texts[2], type: texts[3], age: jsonObject.age };
 
+    // Pusher dette nye objekt op i allAnimals-arrayet
     allAnimals.push(animal);
   });
 
