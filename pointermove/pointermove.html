@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pointermove</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<script>
+    const container = document.querySelector("body");
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    // Vi lytter på hvor musen befinder sig i vores container
+    document.addEventListener("mousemove", setColor);
+
+    function setColor(elm) {
+        // Definere x og y ud fra hvor cursoren befinder sig 
+        const x = elm.clientX;
+        const y = elm.clientY;
+
+        // Beregner en værdi for lightness og saturation, ud fra x og y
+        const l = Math.round(x / width * 100);
+        const s = Math.round(y / height * 100)
+        // Definere en farve hvor der indsættes de nu beregnede værider for l og s
+        const color = `hsl(296 ${s}% ${l}%)`;
+
+        // Tildeler CSS property'en til containeren
+        container.style.setProperty("background-color", color)
+    }
+</script>

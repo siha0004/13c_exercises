@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pointermove med CSS variabler</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<style>
+    html {
+        --saturation: 50%;
+        --lightness: 50%;
+    }
+
+    body {
+        background-color: hsl(296 var(--saturation) var(--lightness));
+    }
+</style>
+
+<script>
+    const cssVars = document.querySelector("html");
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    // Vi lytter på hvor musen befinder sig i vores container
+    document.addEventListener("mousemove", setColor);
+
+    function setColor(elm) {
+        // Definere x og y ud fra hvor cursoren befinder sig 
+        const x = elm.clientX;
+        const y = elm.clientY;
+
+        // Beregner en værdi for lightness og saturation, ud fra x og y
+        const l = Math.round(x / width * 100);
+        const s = Math.round(y / height * 100)
+
+        // Tager fat i CSS variabler som er defineret
+        getComputedStyle(cssVars).getPropertyValue("--saturation", "--lightness");
+        // Ændre deres værdi til at være lig s og l
+        cssVars.style.setProperty("--saturation", s);
+        cssVars.style.setProperty("--lightness", l);
+
+    }
+</script>
